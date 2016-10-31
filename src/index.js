@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Card from '@schibstedspain/sui-card';
 import './index.scss';
 
-const pokemons = fetch('http://pokeapi.co/api/v2/pokemon/?offset=5')
+const pokemons = fetch('http://pokeapi.co/api/v2/pokemon/')
   .then(response => response.json())
   .then(data => data.results)
   .catch(error => { console.log('Request failed', error) })
