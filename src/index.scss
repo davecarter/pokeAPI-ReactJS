@@ -20,14 +20,25 @@ body {
   position: relative;
   text-align: center;
 
+  &-title {
+    margin: 0;
+    text-align: left;
+  }
+
   img {
     display: inline-block;
     height: 100%;
+    padding-bottom: 30px;
     width: auto;
   }
 
   .data {
     position: absolute;
     bottom: 0;
+  }
+
+  p {
+    margin: 5px 0 10px;
+    text-align: left;
   }
 }
