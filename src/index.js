@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Card from '@schibstedspain/sui-card';
+import './index.scss';
 
 const pokemons = fetch('http://pokeapi.co/api/v2/pokemon/')
   .then(response => response.json())
   .then(data => data.results)
   .catch(error => { console.log('Request failed', error) })
 
-class Card extends Component {
+class Pokewrapper extends Component {
   constructor(...args){
     super(...args)
     this.state = {
@@ -23,15 +25,22 @@ class Card extends Component {
     const pokemonName = this.state.pokemons.map( (pokemon, index) => {
       const url = `https://img.pokemondb.net/artwork/${pokemon.name}.jpg`
       return (
-        <div key={index} className='container'>
-          <img src={url} />
-          <p>{pokemon.name}</p>
-        </div>
+        <Card key={index} className='pokeCard'
+          primary={
+            <img title={pokemon.name} src={url} />
+          }
+          secondary={
+            <div className='data'>
+              <h2 className='sui-Card-title'>{pokemon.name}</h2>
+              <p className='sui-Card-description'>{pokemon.weight}</p>
+            </div>
+          }
+        />
       )
     })
 
     return (
-        <div>
+        <div className='pokeWrapper'>
           {pokemonName}
         </div>
     )
@@ -39,6 +48,6 @@ class Card extends Component {
 }
 
 ReactDOM.render(
-  <Card pokemonsPromise={ pokemons }/>,
+  <Pokewrapper pokemonsPromise={ pokemons }/>,
   document.getElementById('app')
 )

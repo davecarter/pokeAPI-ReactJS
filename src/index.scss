@@ -1,0 +1,33 @@
+@import '~@schibstedspain/sui-card/dist/sui-card';
+
+body {
+  background-color: darkgrey;
+  font-family: 'Open-sans', sans-serif;
+}
+
+.pokeWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3em;
+}
+
+.pokeCard {
+  background-color: white;
+  box-shadow: 3px 3px 5px grey;
+  flex: 1 1 auto;
+  margin: 1em;
+  padding: 1em;
+  position: relative;
+  text-align: center;
+
+  img {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+  }
+
+  .data {
+    position: absolute;
+    bottom: 0;
+  }
+}
